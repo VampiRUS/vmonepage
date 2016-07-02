@@ -709,10 +709,12 @@ function submit_order() {
 			jQuery('#shipto_fields_div input').each(function() 
 	   	    { 
 			    inputid = jQuery(this).attr('id');
-				var name= inputid.replace('shipto_','');
-				if(jQuery("#billto_fields_div #"+name).length > 0)
-				{
-					jQuery(this).val(jQuery("#billto_fields_div #"+name).val());
+			    if(typeof inputid != 'undefined') {
+					var name= inputid.replace('shipto_','');
+					if(jQuery("#billto_fields_div #"+name).length > 0)
+					{
+						jQuery(this).val(jQuery("#billto_fields_div #"+name).val());
+					}
 				}
 			});
 		  	 if(jQuery("#virtuemart_country_id").length > 0 && jQuery("#shipto_virtuemart_country_id").length > 0)
